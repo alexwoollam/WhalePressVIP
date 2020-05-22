@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  wordpress:
+    volumes:
+      - "./src/wordpress-pecl-memcached-object-cache/object-cache.php:/var/www/html/wp-content/object-cache.php:ro"
+  memcached:
+    image: "memcached:1.5"
+    networks:
+      - "back"
