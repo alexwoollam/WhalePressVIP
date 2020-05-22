@@ -7,7 +7,7 @@ git fetch && git pull origin master && echo ""
 mkdir -p src
 
 # Edit this value to your VIP Go repo.
-wp_repo="Automattic/vip-go-skeleton"
+wp_repo="wpcomvip/proagrica"
 
 # Clone git repos.
 for repo in \

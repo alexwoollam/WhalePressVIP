@@ -18,10 +18,10 @@ or theme, my [docker-compose-wordpress][simple] repo is a simpler place to start
 
 1. Clone or fork this repo.
 
-2. Add `project.test` to your `/etc/hosts` file:
+2. Add `local.homeagain.com` to your `/etc/hosts` file:
 
    ```
-   127.0.0.1 localhost project.test
+   127.0.0.1 local.homeagain.com
    ```
 
 3. Edit `update.sh` to provide your VIP Go repo in the `wp_repo` variable.
