@@ -5,15 +5,6 @@ development. It provides WordPress, MariaDB, Memcached, WP-CLI, and PHPUnit. It
 further adds VIP Go mu-plugins and a [Photon][photon] server to closely mimic a
 VIP Go environment.
 
-# "Classic" VIP and non-VIP
-
-For an environment suitable for "classic" VIP development, check out my
-[docker-wordpress-vip][vip] repo.
-
-If you only need a Docker WordPress development environment for a single plugin
-or theme, my [docker-compose-wordpress][simple] repo is a simpler place to start.
-
-
 ## Set up
 
 1. Clone or fork this repo.
@@ -36,12 +27,20 @@ or theme, my [docker-compose-wordpress][simple] repo is a simpler place to start
 ```sh
 docker-compose run --rm wp-cli install-wp
 ```
-
 Log in to `http://project.test/wp-admin/` with `wordpress` / `wordpress`.
-
+--or--
 Alternatively, you can navigate to `http://project.test/` and manually perform
 the famous five-second install.
 
+## Issue[!]
+
+I've not fixed this yet, by default the /uploads/ folder permissions are incorrect on the official WordPress image.
+So you'll need to exec into the wordpress container and do these manually to the apache user www-data and re do permissions level.
+
+
+## Update WordPress
+
+Either from with in admin area, or cli the normal way.
 
 ## WP-CLI
 
@@ -150,5 +149,4 @@ the stack.
 [vip-go]: https://vip.wordpress.com/documentation/vip-go/
 [photon]: https://jetpack.com/support/photon/
 [image]: https://hub.docker.com/r/chriszarate/wordpress/
-[simple]: https://github.com/chriszarate/docker-compose-wordpress
-[vip]: https://github.com/chriszarate/docker-wordpress-vip
+
