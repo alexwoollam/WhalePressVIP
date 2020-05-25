@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "maximebf/debugbar": "^1.16"
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "description": "Dev tools to WordPress development",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "casperjs": "^1.1.4",
+    "gulp": "^4.0.2",
+    "gulp-casperjs": "0.0.7",
+    "gulp-w3c-html-validator": "^2.0.1"
+  }
+}

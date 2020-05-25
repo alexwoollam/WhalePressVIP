@@ -2,9 +2,10 @@ version: "3"
 
 services:
   wordpress:
-    image: "wordpress:${WP_VERSION:-5.2.1}-php${PHP_VERSION:-7.3}-apache"
+    image: "wordpress:${WP_VERSION:-5.4.1}-php${PHP_VERSION:-7.3}-apache"
+    ports: 
+      - "9000:9000"
     environment:
-      HTTPS_METHOD: "nohttps"
       VIRTUAL_HOST: "${DOCKER_DEV_DOMAIN}"
       WORDPRESS_DB_HOST: "mysql"
       WORDPRESS_DB_NAME: "wordpress"
@@ -15,11 +16,14 @@ services:
     networks:
       - "front"
       - "back"
+    restart: always
     volumes:
       - "wp:/var/www/html:rw"
       - "./certs/ca-root/ca.crt:/tmp/certs/root.crt:ro"
       - "./conf/php-local.ini:/usr/local/etc/php/conf.d/local.ini:ro"
       - "./conf/wp-local-config.php:/usr/local/etc/php/autoprepend.php:ro"
+      - "./devtools/vendor:/var/www/html/vendor:ro"
+      - "./bin:/var/www/html/bin:rw"
       - "./src/vip-go-mu-plugins:/var/www/html/wp-content/mu-plugins"
       - "./src/wp/client-mu-plugins:/var/www/html/wp-content/client-mu-plugins"
       - "./src/wp/images:/var/www/html/wp-content/images"
@@ -51,17 +55,23 @@ services:
       - "./src/wp/themes:/var/www/html/wp-content/themes"
       - "./src/wp/vip-config:/var/www/html/wp-content/vip-config"
   photon:
-    image: "alexwoollam/photon-whale:latest"
+    image: "alexwoollam/photon-whale"
     networks:
       - "front"
+    restart: always
   mysql:
     image: "mariadb:10.2"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: "wordpress"
       MYSQL_ROOT_PASSWORD: ""
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./data/db:/var/lib/mysql/wordpress:rw"
     networks:
       - "back"
+    restart: always
   proxy:
     image: "jwilder/nginx-proxy:alpine"
     environment:
