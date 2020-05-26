@@ -137,6 +137,7 @@ If your self-signed certs have expired (`ERR_CERT_DATE_INVALID`), simply delete
 the `certs/self-signed` directory, run `./certs/create-certs.sh`, and restart
 the stack.
 
+an update to docker-wordpress-vip-go: https://github.com/chriszarate/docker-wordpress-vip-go
 
 [vip-go]: https://vip.wordpress.com/documentation/vip-go/
 [photon]: https://jetpack.com/support/photon/
