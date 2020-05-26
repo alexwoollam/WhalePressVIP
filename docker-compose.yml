@@ -52,7 +52,7 @@ services:
       - "./src/wp/languages:/var/www/html/wp-content/languages"
       - "./src/wp/plugins:/var/www/html/wp-content/plugins"
       - "./src/wp/private:/var/www/html/wp-content/private"
-      - "./src/wp/themes:/var/www/html/wp-content/themes"
+      - "./src/wp/themes:/var/www/html/wp-content/themes:rw"
       - "./src/wp/vip-config:/var/www/html/wp-content/vip-config"
   photon:
     image: "alexwoollam/photon-whale"
@@ -67,8 +67,6 @@ services:
       MYSQL_ROOT_PASSWORD: ""
     ports:
       - "3306:3306"
-    volumes:
-      - "./data/db:/var/lib/mysql/wordpress:rw"
     networks:
       - "back"
     restart: always
