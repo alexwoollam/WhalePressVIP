@@ -5,15 +5,6 @@ development. It provides WordPress, MariaDB, Memcached, WP-CLI, and PHPUnit. It
 further adds VIP Go mu-plugins and a [Photon][photon] server to closely mimic a
 VIP Go environment.
 
-# "Classic" VIP and non-VIP
-
-For an environment suitable for "classic" VIP development, check out my
-[docker-wordpress-vip][vip] repo.
-
-If you only need a Docker WordPress development environment for a single plugin
-or theme, my [docker-compose-wordpress][simple] repo is a simpler place to start.
-
-
 ## Set up
 
 1. Clone or fork this repo.
