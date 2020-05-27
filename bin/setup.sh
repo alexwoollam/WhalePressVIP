@@ -13,13 +13,14 @@ if [ ! -f docker-compose.yml ]; then
 fi
 
 if [ ! -z "$(docker-compose ps | sed -e '/^\-\-\-/,$!d' -e '/^\-\-\-/d')" ]; then
+  echo "!!!WARNING!!!"
   echo "Please run \`docker-compose down\` before running this script. (You will need"
   echo "to reimport content after this script completes.)"
   exit 1
 fi
 
 # Make sure environment is up to date.
-./update.sh
+./bin/update.sh
 
 # Make sure self-signed TLS certificates exist.
 ./certs/create-certs.sh

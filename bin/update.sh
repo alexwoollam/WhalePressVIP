@@ -12,7 +12,7 @@ wp_repo="Automattic/vip-go-skeleton"
 # Clone git repos.
 for repo in \
   $wp_repo \
-  Automattic/vip-go-mu-plugins \
+  Automattic/vip-go-mu-plugins-built \
   tollmanz/wordpress-pecl-memcached-object-cache
 do
   dir_name="${repo##*/}"
@@ -21,10 +21,10 @@ do
   fi
 
   # Clone repo if it is not in the "src" subfolder.
-  if [ ! -d "src/$dir_name/.git" ]; then
+  if [ ! -d "./src/$dir_name/.git" ]; then
     echo "Cloning $repo in the \"src\" subfolder...."
-    rm -rf src/$dir_name
-    git clone --recursive git@github.com:$repo "src/$dir_name"
+    rm -rf ./src/$dir_name
+    git clone --recursive git@github.com:$repo "./src/$dir_name"
   fi
 
   # Make sure repos are up-to-date.
