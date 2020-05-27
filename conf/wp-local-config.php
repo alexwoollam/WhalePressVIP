@@ -17,7 +17,7 @@ define( 'VIP_GO_ENV', 'local' );
 
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
-define( 'WP_DEBUG', true );
+define( 'WP_DEBUG', false );
 define( 'WP_DISPLAY_DEBUG', false );
 
 // This provides the host and port of the development Memcached server. The host
