@@ -65,6 +65,8 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: "wordpress"
       MYSQL_ROOT_PASSWORD: ""
+    volumes:
+      - "./data/db/:/var/lib/mysql"
     ports:
       - "3306:3306"
     networks:
