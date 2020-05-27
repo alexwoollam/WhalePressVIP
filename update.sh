@@ -12,7 +12,7 @@ wp_repo="Automattic/vip-go-skeleton"
 # Clone git repos.
 for repo in \
   $wp_repo \
-  Automattic/vip-go-mu-plugins \
+  alexwoollam/vip-go-mu-plugins \
   tollmanz/wordpress-pecl-memcached-object-cache
 do
   dir_name="${repo##*/}"
