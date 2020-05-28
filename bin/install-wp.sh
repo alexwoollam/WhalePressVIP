@@ -11,3 +11,7 @@ wp core install \
 
 # Update permalink structure.
 wp option update permalink_structure "/%year%/%monthnum%/%postname%/" --skip-themes --skip-plugins
+
+wp core update
+
+chown -R www-data:www-data /var/www/html/wp-content
