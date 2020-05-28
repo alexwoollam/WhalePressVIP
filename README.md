@@ -43,7 +43,17 @@ You will probably want to create a shell alias for this:
 ```sh
 docker-compose run --rm wp-cli wp [command]
 ```
+e.g.
 
+```sh
+docker-compose run --rm wp-cli wp core update
+```
+## Caveats/Issues
+Sometimes the media lib wont let you upload due to permissions. This is because the wp-content folder permissions have been overwritten during the install. Run this command:
+
+```sh
+docker-compose exec wordpress /bin/bash -c "chown -R www-data:www-data ./wp-content"
+```
 
 ## Running tests (PHPUnit)
 
