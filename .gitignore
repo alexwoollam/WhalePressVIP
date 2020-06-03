@@ -1,3 +1,7 @@
 /certs/ca-root/
 /certs/self-signed/
 /src/
+/conf/vendor/
+/conf/composer.lock
+/data/db
+.DS_Store

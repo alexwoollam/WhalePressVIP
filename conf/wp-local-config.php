@@ -13,8 +13,12 @@ if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X
 // Indicate VIP Go environment.
 define( 'VIP_GO_ENV', 'local' );
 
-// Disable automatic updates.
+
+
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
+
+define( 'WP_DEBUG', false );
+define( 'WP_DISPLAY_DEBUG', false );
 
 // This provides the host and port of the development Memcached server. The host
 // should match the container name in `docker-compose.memcached.yml`. If you

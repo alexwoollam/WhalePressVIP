@@ -1,3 +1,5 @@
+# NOTE: The docker images are set to private, so I'll need to add you - let me know your docker hub id.
+
 # WordPress VIP Go development for Docker
 
 This repo provides a Docker-based environment for [WordPress VIP Go][vip-go]
@@ -49,7 +51,17 @@ You will probably want to create a shell alias for this:
 ```sh
 docker-compose run --rm wp-cli wp [command]
 ```
+e.g.
 
+```sh
+docker-compose run --rm wp-cli wp core update
+```
+## Caveats/Issues
+Sometimes the media lib wont let you upload due to permissions. This is because the wp-content folder permissions have been overwritten during the install. Run this command:
+
+```sh
+docker-compose exec wordpress /bin/bash -c "chown -R www-data:www-data ./wp-content"
+```
 
 ## Running tests (PHPUnit)
 
@@ -145,6 +157,7 @@ If your self-signed certs have expired (`ERR_CERT_DATE_INVALID`), simply delete
 the `certs/self-signed` directory, run `./certs/create-certs.sh`, and restart
 the stack.
 
+an update to docker-wordpress-vip-go: https://github.com/chriszarate/docker-wordpress-vip-go
 
 [vip-go]: https://vip.wordpress.com/documentation/vip-go/
 [photon]: https://jetpack.com/support/photon/
