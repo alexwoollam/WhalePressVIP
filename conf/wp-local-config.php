@@ -5,29 +5,25 @@
  * @package docker-wordpress-vip-go
  */
 
-// Conditionally turn on HTTPS since we're behind nginx-proxy.
-if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) { // Input var ok.
+require_once '/var/www/html/vendor/autoload.php';
+
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
+
+
+if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
 	$_SERVER['HTTPS'] = 'on';
 }
 
-// Indicate VIP Go environment.
 define( 'VIP_GO_ENV', 'local' );
-
-
-
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
+define( 'WP_DEBUG', true );
+define( 'WP_DISPLAY_DEBUG', true );
 
-define( 'WP_DEBUG', false );
-define( 'WP_DISPLAY_DEBUG', false );
-
-// This provides the host and port of the development Memcached server. The host
-// should match the container name in `docker-compose.memcached.yml`. If you
-// aren't using Memcached, it will simply be ignored.
-$memcached_servers = array(
-	array(
+$memcached_servers = [
+	[
 		'memcached',
 		11211,
-	),
-);
-
-// Put project-specific config below this line.
+	]
+];

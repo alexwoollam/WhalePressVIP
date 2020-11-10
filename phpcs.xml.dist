@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<ruleset name="Inpsyde Coding Standard">
+ 	<description>We are using Inpsyde coding standards on that as they are most conforable with it.</description>
+
+    <file>./</file>
+
+    <arg value="sp"/>
+    <arg name="colors"/>
+    <arg name="parallel" value="8"/>
+    <arg name="extensions" value="php"/>
+
+    <arg name="basepath" value="./src/wp/"/>
+
+    <exclude-pattern>wordpress-pecl-memcached-object-cache/</exclude-pattern>
+
+    <exclude-pattern>/.github/*</exclude-pattern>
+    <exclude-pattern>/.scannerword/*</exclude-pattern>
+    <exclude-pattern>conf/*</exclude-pattern>
+    <exclude-pattern>vip-config/*</exclude-pattern>
+    <exclude-pattern>plugins/*</exclude-pattern>
+    <exclude-pattern>client-mu-plugins/query-monitor/</exclude-pattern>
+    <exclude-pattern>themes/twenty*</exclude-pattern>
+    <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/node_modules/*</exclude-pattern>
+    
+    <!-- Use Inpsyde Coding Standards -->
+    <rule ref="devtools/vendor/inpsyde/php-coding-standards"/>
+    <rule ref="devtools/vendor/automattic/phpcs-neutron-standard"/>
+    <rule ref="devtools/vendor/automattic/vipwpcs/WordPressVIPMinimum"/>
+    <!--<rule ref="WordPress-Docs"/>-->
+
+    <!-- Using this due to the way Merit setup the relation tables. -->
+    <rule ref="WordPress.DB.PreparedSQL.InterpolatedNotPrepared">
+        <exclude-pattern>*</exclude-pattern>
+    </rule>
+    <rule ref="WordPress.DB.PreparedSQL.NotPrepared">
+        <exclude-pattern>*</exclude-pattern>
+    </rule>
+    <rule ref="WordPressVIPMinimum.Functions.RestrictedFunctions.dbDelta_dbdelta">
+        <exclude-pattern>*</exclude-pattern>
+    </rule>
+    <rule ref="Inpsyde.CodeQuality.FunctionLength.TooLong">
+        <exclude-pattern>*</exclude-pattern>
+    </rule>    
+    <rule ref="NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions">
+        <exclude-pattern>*</exclude-pattern>
+    </rule>
+    <rule ref="NeutronStandard.Constants.DisallowDefine.Define">
+        <exclude-pattern>*</exclude-pattern>
+    </rule>
+    <!-- End skippage. -->   
+    
+
+</ruleset>

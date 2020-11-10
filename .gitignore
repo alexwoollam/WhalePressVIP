@@ -5,3 +5,4 @@
 /conf/composer.lock
 /data/db
 .DS_Store
+*/node_modules/*

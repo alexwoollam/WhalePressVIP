@@ -1,5 +1,26 @@
 {
+    "name": "vip/buildenv",
+    "description": "wordpress vip build env",
+    "type": "lib",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Alexander Woollam",
+            "email": "alex.woollam@proagrica.com"
+        }
+    ],
+    "require": {
+        "filp/whoops": "^2.9"
+
+    },
     "require-dev": {
-        "maximebf/debugbar": "^1.16"
+        "maximebf/debugbar": "^1.16",
+        "inpsyde/php-coding-standards": "1.*",
+        "vimeo/psalm": "^3.16",
+        "roots/wordpress": "@stable"
+    },
+    "extra": {
+        "wordpress-install-dir": "vendor/wordpress/wordpress"
     }
 }

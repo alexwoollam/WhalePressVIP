@@ -1,0 +1,52 @@
+{
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        {
+            "column": 4,
+            "color": "rgba(217,45,7,0.15)"
+        },
+        {
+            "column": 8,
+            "color": "rgba(217, 84, 7,0.15)"
+        },
+        {
+            "column": 12,
+            "color": "rgba( 217, 163, 98, 0.15)"
+        },
+        {
+            "column": 16,
+            "color": "rgba( 75, 212, 242, 0.15)"
+        },
+        {
+            "column": 20,
+            "color": "rgba( 48, 124, 191, 0.15)"
+        },
+        {
+            "column": 100,
+            "color": "rgba(217,45,7,0.25)"
+        },
+        {
+            "column": 104,
+            "color": "rgba(217,45,7,0.15)"
+        },
+        {
+            "column": 108,
+            "color": "rgba(217, 84, 7,0.15)"
+        },
+        {
+            "column": 112,
+            "color": "rgba( 217, 163, 98, 0.15)"
+        },
+        {
+            "column": 116,
+            "color": "rgba( 75, 212, 242, 0.15)"
+        },
+        {
+            "column": 120,
+            "color": "rgba( 48, 124, 191, 0.15)"
+        },
+    ],
+    "workbench.tips.enabled": false,
+    "window.titleSeparator": " | "
+    
+}

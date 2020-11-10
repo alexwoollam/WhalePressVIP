@@ -67,11 +67,11 @@ services:
       MYSQL_ROOT_PASSWORD: ""
     volumes:
       - "mysql:/var/lib/mysql"
-    ports:
-      - "3306:3306"
     networks:
       - "back"
     restart: always
+    ports:
+      - "3306:3306"
   proxy:
     image: "jwilder/nginx-proxy:alpine"
     environment:
