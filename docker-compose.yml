@@ -16,7 +16,7 @@ services:
     networks:
       - "front"
       - "back"
-    restart: always
+    restart: on-failure
     volumes:
       - "wp:/var/www/html:rw"
       - "./certs/ca-root/ca.crt:/tmp/certs/root.crt:ro"
@@ -42,7 +42,7 @@ services:
     networks:
       - "back"
     volumes:
-      - "wp:/var/www/html:rw"
+      - "./src/wp:/var/www/html:rw"
       - "./bin/install-wp.sh:/usr/local/bin/install-wp:ro"
       - "./conf/php-local.ini:/usr/local/etc/php/conf.d/local.ini:ro"
       - "./conf/wp-local-config.php:/usr/local/etc/php/autoprepend.php:ro"
@@ -58,7 +58,7 @@ services:
     image: "alexwoollam/photon-whale"
     networks:
       - "front"
-    restart: always
+    restart: on-failure
   mysql:
     image: "mariadb:10.2"
     environment:
@@ -66,10 +66,10 @@ services:
       MYSQL_DATABASE: "wordpress"
       MYSQL_ROOT_PASSWORD: ""
     volumes:
-      - "mysql:/var/lib/mysql"
+      - "./src/wp/db:/docker-entrypoint-initdb.d"
     networks:
       - "back"
-    restart: always
+    restart: on-failure
     ports:
       - "3306:3306"
   proxy:
@@ -77,17 +77,17 @@ services:
     environment:
       HSTS: "off"
     ports:
-      - "80:80"
+      - "8080:80"
       - "443:443"
     networks:
       front:
         aliases:
           - "${DOCKER_DEV_DOMAIN}"
     volumes:
-      - "/var/run/docker.sock:/tmp/docker.sock:ro"
-      - "./certs/self-signed:/etc/nginx/certs:ro"
-      - "./conf/nginx-proxy.conf:/etc/nginx/conf.d/proxy.conf:ro"
-      - "./conf/nginx-proxy-wordpress.conf:/etc/nginx/vhost.d/${DOCKER_DEV_DOMAIN}_location:ro"
+      - "/var/run/docker.sock:/tmp/docker.sock"
+      - "./certs/self-signed:/etc/nginx/certs"
+      - "./conf/nginx-proxy.conf:/etc/nginx/conf.d/proxy.conf"
+      - "./conf/nginx-proxy-wordpress.conf:/etc/nginx/vhost.d/${DOCKER_DEV_DOMAIN}_location"
 
 networks:
   front: {}

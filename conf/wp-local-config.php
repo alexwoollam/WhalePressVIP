@@ -18,8 +18,9 @@ if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X
 
 define( 'VIP_GO_ENV', 'local' );
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
-define( 'WP_DEBUG', true );
+//define( 'WP_DEBUG', true );
 define( 'WP_DISPLAY_DEBUG', true );
+define( 'WP_ALLOW_MULTISITE', true );
 
 $memcached_servers = [
 	[

@@ -7,12 +7,12 @@ git fetch && git pull origin master && echo ""
 mkdir -p src
 
 # Edit this value to your VIP Go repo.
-wp_repo="Automattic/vip-go-skeleton"
+wp_repo="DBTLtd/MSD.Emergence.VIP"
 
 # Clone git repos.
 for repo in \
   $wp_repo \
-  alexwoollam/vip-go-mu-plugins \
+  Automattic/vip-go-mu-plugins-built \
   tollmanz/wordpress-pecl-memcached-object-cache
 do
   dir_name="${repo##*/}"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEFAULT_DOMAIN="project.test"
+DEFAULT_DOMAIN="QHSL34044"
 
 if [ ! -f docker-compose.yml ]; then
   echo "Please run this script from the root of the repo."
