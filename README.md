@@ -11,10 +11,10 @@ VIP Go environment.
 
 1. Clone or fork this repo.
 
-2. Add `local.homeagain.com` to your `/etc/hosts` file:
+2. Add `project.test` to your `/etc/hosts` file:
 
    ```
-   127.0.0.1 local.homeagain.com
+   127.0.0.1 project.test
    ```
 
 3. Edit `update.sh` to provide your VIP Go repo in the `wp_repo` variable.
