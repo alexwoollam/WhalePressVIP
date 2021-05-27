@@ -1,5 +1,5 @@
 
-# WordPress VIP Go development for Docker
+# WordPress VIP development enviroment for Docker
 
 This repo provides a Docker-based environment for [WordPress VIP Go][vip-go]
 development. It provides WordPress, MariaDB, Memcached, WP-CLI, and PHPUnit. It
