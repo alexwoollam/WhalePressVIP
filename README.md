@@ -1,4 +1,3 @@
-# NOTE: The docker images are set to private, so I'll need to add you - let me know your docker hub id.
 
 # WordPress VIP Go development for Docker
 
